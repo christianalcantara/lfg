@@ -13,7 +13,12 @@ from rest_framework.viewsets import GenericViewSet
 
 from ..models import LoanApplication, Proposal, Value
 from ..tasks import proccess_loan_requests
-from .serializers import LoanApplicationSerializer, ProposalSerializer, ValueSerializer
+from .serializers import (
+    LoanApplicationCreateSerializer,
+    LoanApplicationSerializer,
+    ProposalSerializer,
+    ValueSerializer,
+)
 
 
 class ProposalViewSet(
@@ -27,14 +32,23 @@ class LoanApplicationViewSet(RetrieveModelMixin, ListModelMixin, GenericViewSet)
     serializer_class = LoanApplicationSerializer
     queryset = LoanApplication.objects.all()
 
+    def get_serializer_class(self):
+        if self.action == "request":
+            return LoanApplicationCreateSerializer
+        return self.serializer_class
+
     @action(detail=False, methods=["post"])
     def request(self, request, pk=None):
         # Endpoint para criar os valores para os campos passados pelo frontend
         data = request.data
         try:
             proposal_id = data.pop("proposal_id")
+            partner_name = data.pop("partner_name")
+            partner_document = data.pop("partner_document")
             if data:
-                loan_application = LoanApplication.objects.create(proposal_id=proposal_id)
+                loan_application = LoanApplication.objects.create(
+                    partner_name=partner_name, partner_document=partner_document, proposal_id=proposal_id
+                )
                 for field_id in data:
                     value = data[field_id]
                     if data:

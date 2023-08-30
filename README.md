@@ -111,16 +111,14 @@ Siga os passos na seguinte ordem:
 
 ### Administrador
 
-Se você é administrador do sistema acesse a url: http://localhost:8000.
+Se você é administrador do sistema acesse a url: http://localhost:8000/admin.
 
 - Credenciais:
 
 ```
 Usuário: admin
-Senha  : *****
+Senha  : admin
 ```
-
-`senha: admin`
 
 <table>
 <thead>
@@ -169,6 +167,13 @@ Senha  : *****
 </thead>
 </table>
 <p style="color: red">Obs: Os pedidos enviados pelo frontend, são processados em um intevalo de 10 segundos no RabbitMQ/Celery.</p>
+
+##### Para Aprovar/Negar um pedido de empréstimo:
+
+<img src="docs/images/tela_proposta_4.png" alt="Logo">
+
+1. Selecione um pedido de empréstimo com o status `Aguardando Aprovação`.
+2. Clique no botão `Aprovar` ou `Negar
 
 ## Explore
 

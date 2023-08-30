@@ -34,6 +34,17 @@ class LoanApplicationSerializer(serializers.ModelSerializer):
         fields = ["id", "proposal", "values_loan_applicattions"]
 
 
+class LoanApplicationCreateSerializer(LoanApplicationSerializer):
+    partner_name = serializers.CharField(max_length=150)
+    partner_document = serializers.CharField(max_length=50)
+    proposal = serializers.SlugRelatedField(many=False, slug_field="name", read_only=True)
+    values_loan_applicattions = ValuesLoanApplicationSerializer(many=True, read_only=True)
+
+    class Meta:
+        model = LoanApplication
+        fields = ["id", "proposal", "partner_name", "partner_document", "values_loan_applicattions"]
+
+
 class ValueSerializer(serializers.ModelSerializer):
     class Meta:
         model = Value

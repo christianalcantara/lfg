@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import TutorialDataService from '../services/ProposalService';
+import ProposalService from '../services/ProposalService';
 
 const ProposalList = () => {
   const [proposal, setProposal] = useState([]);
@@ -11,7 +11,7 @@ const ProposalList = () => {
   }, []);
 
   const retrieveProposals = () => {
-    TutorialDataService.getAllProposal()
+    ProposalService.getAllProposal()
       .then((response) => {
         setProposal(response.data);
         console.log(response.data);
@@ -28,7 +28,34 @@ const ProposalList = () => {
   };
 
   function getFields(fields) {
-    let fieldsList = [];
+    let fieldsList = [
+      <label className="form-label" htmlFor="partner_name">
+        Your Name:
+      </label>,
+      <input
+        className="form-control"
+        style={{ marginBottom: '10px' }}
+        type="text"
+        id="partner_name"
+        name="partner_name"
+        required={true}
+        onChange={updateData}
+        data-field_id="partner_name"
+      />,
+      <label className="form-label" htmlFor="partner_name">
+        Your Document:
+      </label>,
+      <input
+        className="form-control"
+        style={{ marginBottom: '10px' }}
+        type="text"
+        id="partner_document"
+        name="partner_document"
+        required={true}
+        onChange={updateData}
+        data-field_id="partner_document"
+      />,
+    ];
     fields.forEach((field, index) => {
       console.log(field);
       fieldsList.push(
@@ -62,7 +89,7 @@ const ProposalList = () => {
   const submit = (e) => {
     e.preventDefault();
     data['proposal_id'] = currentTutorial.id;
-    TutorialDataService.createRequest(data)
+    ProposalService.createRequest(data)
       .then((response) => {
         console.log(response.data);
         alert('Proposta enviada');

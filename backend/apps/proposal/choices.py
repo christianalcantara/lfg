@@ -10,7 +10,7 @@ class FieldTypes(TextChoices):
     EMAIL = "email", _("E-mail")
 
 
-class ProposalStatus(TextChoices):
+class LoanStatus(TextChoices):
     APPROVED = "approved", _("Approved")
-    NOT_APPROVED = "not_approved", _("Not Approved")
+    NOT_APPROVED = "not_approved", _("Denied")
     WAITING_FOR_APPROVAL = "waiting_for_approval", _("Waiting for Approval")

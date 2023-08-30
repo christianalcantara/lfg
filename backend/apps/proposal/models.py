@@ -1,7 +1,7 @@
 from django.db import models
 from django.utils.translation import gettext_lazy as _
 
-from .choices import FieldTypes
+from .choices import FieldTypes, LoanStatus
 
 
 class Proposal(models.Model):
@@ -19,13 +19,23 @@ class LoanApplication(models.Model):
     creation_date = models.DateTimeField(
         verbose_name=_("Creation Date"), editable=False, blank=True, auto_now_add=True
     )
+    status = models.CharField(
+        verbose_name=_("Status"),
+        max_length=20,
+        choices=LoanStatus.choices,
+        db_index=True,
+        null=True,
+        blank=True,
+        default=None,
+    )
+    partner_name = models.CharField(verbose_name=_("Partner Name"), max_length=150)
+    partner_document = models.CharField(verbose_name=_("Partner Document"), max_length=50)
     proposal = models.ForeignKey(
         verbose_name=_("Proposal"),
         to=Proposal,
         on_delete=models.PROTECT,
         related_name="loan_applicattions",
     )
-    approved = models.BooleanField(verbose_name=_("Approved"), default=None, null=True)
 
     class Meta:
         verbose_name = _("Loan Application")
