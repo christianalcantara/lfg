@@ -1,4 +1,10 @@
-FROM python:latest
+FROM python:3.11.5-slim-bullseye as python
+
+RUN apt-get update && apt-get install --no-install-recommends -y \
+  build-essential \
+  gettext \
+  && apt-get purge -y --auto-remove -o APT::AutoRemove::RecommendsImportant=false \
+  && rm -rf /var/lib/apt/lists/*
 
 WORKDIR /app/backend
 COPY ./requirements /app/backend/requirements
