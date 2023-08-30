@@ -94,7 +94,7 @@ https://docs.docker.com/compose/install/
 #### Baixe o repositório do github
 
 ```bash
-$ git clone https://github.com/christianalcantara/plp.git
+$ git clone https://github.com/christianalcantara/lfg.git
 ```
 
 #### Instalação
