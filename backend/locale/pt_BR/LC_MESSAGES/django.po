@@ -1,0 +1,130 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-06-24 01:27-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+
+#: apps/proposal/api/views.py:46
+#, fuzzy
+#| msgid "Loan Requests"
+msgid "Bad request"
+msgstr "Deu ruim"
+
+#: apps/proposal/apps.py:8
+msgid "Management of Loan Proposals"
+msgstr "Gestão de Propostas de Empréstimo"
+
+#: apps/proposal/choices.py:6
+msgid "Text"
+msgstr "Texto"
+
+#: apps/proposal/choices.py:7
+msgid "Number"
+msgstr "Número"
+
+#: apps/proposal/choices.py:8
+msgid "Phone Number"
+msgstr "Telefone"
+
+#: apps/proposal/choices.py:9
+msgid "Date"
+msgstr "Date"
+
+#: apps/proposal/choices.py:10
+msgid "E-mail"
+msgstr "E-mail"
+
+#: apps/proposal/models.py:8
+msgid "Proposal Name"
+msgstr "Nome da proposta"
+
+#: apps/proposal/models.py:11 apps/proposal/models.py:23
+#: apps/proposal/models.py:40
+msgid "Proposal"
+msgstr "Proposta"
+
+#: apps/proposal/models.py:12
+msgid "Proposals"
+msgstr "Propostas"
+
+#: apps/proposal/models.py:20
+msgid "Creation Date"
+msgstr "Data de criação"
+
+#: apps/proposal/models.py:28
+msgid "Approved"
+msgstr "Approvado"
+
+#: apps/proposal/models.py:31 apps/proposal/models.py:65
+msgid "Loan Application"
+msgstr "Pedido de empréstimo"
+
+#: apps/proposal/models.py:32
+msgid "Loan Requests"
+msgstr "Pedidos de empréstimo"
+
+#: apps/proposal/models.py:45
+msgid "Name"
+msgstr "Nome"
+
+#: apps/proposal/models.py:45
+msgid "Field name."
+msgstr "Nome do campo."
+
+#: apps/proposal/models.py:47
+msgid "Label"
+msgstr "Etiqueta"
+
+#: apps/proposal/models.py:49
+msgid "Text to be displayed in the field."
+msgstr "Texto a ser exibido no campo."
+
+#: apps/proposal/models.py:51
+msgid "Field Type"
+msgstr "Tipo de campo"
+
+#: apps/proposal/models.py:52
+msgid "Required"
+msgstr "Requerido"
+
+#: apps/proposal/models.py:52
+msgid "Field is required?"
+msgstr "Este campo é requerido?"
+
+#: apps/proposal/models.py:55
+msgid "Proposal Field"
+msgstr "Campo da proposta"
+
+#: apps/proposal/models.py:56
+msgid "Proposal Fields"
+msgstr "Campos da proposta"
+
+#: apps/proposal/models.py:71
+msgid "Field"
+msgstr "Campo"
+
+#: apps/proposal/models.py:76
+msgid "Value"
+msgstr "Valor"
+
+#: apps/proposal/models.py:79
+msgid "Field Value"
+msgstr "Valor do campo"
+
+#: apps/proposal/models.py:80
+msgid "Fields Value"
+msgstr "Valores do campo"

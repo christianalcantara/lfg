@@ -1,0 +1,52 @@
+version: '3.8'
+
+services:
+  redis:
+    image: redis:latest
+    hostname: redis
+  rabbit:
+    hostname: rabbit
+    image: rabbitmq:latest
+    environment:
+      - RABBITMQ_DEFAULT_USER=guest
+      - RABBITMQ_DEFAULT_PASS=guest
+  django:
+    build: ./backend
+
+    volumes:
+      - ./backend:/app/backend
+    ports:
+      - '8000:8000'
+    environment:
+      - DJANGO_SETTINGS_MODULE=plp.settings
+    stdin_open: true
+    tty: true
+    command: ./scripts/run_django.sh
+    links:
+      - rabbit
+      - redis
+  react:
+    build: ./frontend
+    stdin_open: true
+    tty: true
+    volumes:
+      - ./frontend:/app
+      - /app/node_modules
+    ports:
+      - '3000:3000'
+    environment:
+      - NODE_ENV=development
+      - NODE_OPTIONS=--openssl-legacy-provider
+    depends_on:
+      - django
+    command: npm start
+  worker:
+    build: ./backend
+    command: ./scripts/run_celery.sh
+    volumes:
+      - ./backend:/app/backend
+    links:
+      - rabbit
+      - redis
+    depends_on:
+      - rabbit
