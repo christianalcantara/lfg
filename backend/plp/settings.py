@@ -9,7 +9,6 @@ https://docs.djangoproject.com/en/4.2/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.2/ref/settings/
 """
-
 from pathlib import Path
 
 import environ
@@ -35,7 +34,6 @@ DEBUG = env.bool("DEBUG", False)
 
 ALLOWED_HOSTS = env.list("ALLOWED_HOSTS")
 
-
 # Application definition
 
 DJANGO_APPS = [
@@ -47,7 +45,7 @@ DJANGO_APPS = [
     "django.contrib.staticfiles",
 ]
 
-THIRD_APPS = ["rest_framework", "drf_spectacular"]
+THIRD_APPS = ["rest_framework", "drf_spectacular", "django_celery_beat"]
 
 LOCAL_APPS = ["apps.core", "apps.proposal"]
 
@@ -69,7 +67,7 @@ ROOT_URLCONF = "plp.urls"
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
-        "DIRS": [],
+        "DIRS": [BASE_DIR / "templates"],
         "APP_DIRS": True,
         "OPTIONS": {
             "context_processors": [
@@ -83,7 +81,6 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = "plp.wsgi.application"
-
 
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
@@ -107,7 +104,6 @@ AUTH_PASSWORD_VALIDATORS = [
         "NAME": "django.contrib.auth.password_validation.NumericPasswordValidator",  # noqa: E501
     },
 ]
-
 
 # Internationalization
 # https://docs.djangoproject.com/en/4.2/topics/i18n/
@@ -150,8 +146,10 @@ SPECTACULAR_SETTINGS = {
     "VERSION": "1.0.0",
     "SERVE_PERMISSIONS": ["rest_framework.permissions.AllowAny"],
 }
-
 # Celery Configuration Options
 # https://docs.celeryq.dev/en/stable/userguide/configuration.html#new-lowercase-settings
 CELERY_TIMEZONE = TIME_ZONE
 CELERY_BROKER_URL = env("CELERY_BROKER_URL", default="amqp://localhost")
+CELERY_BEAT_SCHEDULE = {
+    "proccess_loan_requests": {"task": "apps.proposal.tasks.proccess_loan_requests", "schedule": 10.0}
+}
