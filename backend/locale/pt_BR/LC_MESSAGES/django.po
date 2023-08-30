@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-06-24 01:27-0300\n"
+"POT-Creation-Date: 2023-08-30 04:33-0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
-#: apps/proposal/api/views.py:46
+#: apps/proposal/api/views.py:58
 #, fuzzy
 #| msgid "Loan Requests"
 msgid "Bad request"
@@ -48,12 +48,24 @@ msgstr "Date"
 msgid "E-mail"
 msgstr "E-mail"
 
+#: apps/proposal/choices.py:14
+msgid "Approved"
+msgstr "Aprovado"
+
+#: apps/proposal/choices.py:15
+msgid "Denied"
+msgstr "Negado"
+
+#: apps/proposal/choices.py:16
+msgid "Waiting for Approval"
+msgstr "Aguardando Aprovação"
+
 #: apps/proposal/models.py:8
 msgid "Proposal Name"
 msgstr "Nome da proposta"
 
-#: apps/proposal/models.py:11 apps/proposal/models.py:23
-#: apps/proposal/models.py:40
+#: apps/proposal/models.py:11 apps/proposal/models.py:27
+#: apps/proposal/models.py:43
 msgid "Proposal"
 msgstr "Proposta"
 
@@ -65,66 +77,79 @@ msgstr "Propostas"
 msgid "Creation Date"
 msgstr "Data de criação"
 
-#: apps/proposal/models.py:28
-msgid "Approved"
-msgstr "Approvado"
+#: apps/proposal/models.py:22
+msgid "Status"
+msgstr "Situação"
 
-#: apps/proposal/models.py:31 apps/proposal/models.py:65
+#: apps/proposal/models.py:24
+msgid "Partner Name"
+msgstr "Nome do Parceiro"
+
+#: apps/proposal/models.py:25
+msgid "Partner Document"
+msgstr "Documento do Parceiro"
+
+#: apps/proposal/models.py:34 apps/proposal/models.py:68
 msgid "Loan Application"
 msgstr "Pedido de empréstimo"
 
-#: apps/proposal/models.py:32
+#: apps/proposal/models.py:35
 msgid "Loan Requests"
 msgstr "Pedidos de empréstimo"
 
-#: apps/proposal/models.py:45
+#: apps/proposal/models.py:48
 msgid "Name"
 msgstr "Nome"
 
-#: apps/proposal/models.py:45
+#: apps/proposal/models.py:48
 msgid "Field name."
 msgstr "Nome do campo."
 
-#: apps/proposal/models.py:47
+#: apps/proposal/models.py:50
 msgid "Label"
 msgstr "Etiqueta"
 
-#: apps/proposal/models.py:49
+#: apps/proposal/models.py:52
 msgid "Text to be displayed in the field."
 msgstr "Texto a ser exibido no campo."
 
-#: apps/proposal/models.py:51
+#: apps/proposal/models.py:54
 msgid "Field Type"
 msgstr "Tipo de campo"
 
-#: apps/proposal/models.py:52
+#: apps/proposal/models.py:55
 msgid "Required"
 msgstr "Requerido"
 
-#: apps/proposal/models.py:52
+#: apps/proposal/models.py:55
 msgid "Field is required?"
 msgstr "Este campo é requerido?"
 
-#: apps/proposal/models.py:55
+#: apps/proposal/models.py:58
 msgid "Proposal Field"
 msgstr "Campo da proposta"
 
-#: apps/proposal/models.py:56
+#: apps/proposal/models.py:59
 msgid "Proposal Fields"
 msgstr "Campos da proposta"
 
-#: apps/proposal/models.py:71
+#: apps/proposal/models.py:74
 msgid "Field"
 msgstr "Campo"
 
-#: apps/proposal/models.py:76
+#: apps/proposal/models.py:79
 msgid "Value"
 msgstr "Valor"
 
-#: apps/proposal/models.py:79
+#: apps/proposal/models.py:82
 msgid "Field Value"
 msgstr "Valor do campo"
 
-#: apps/proposal/models.py:80
+#: apps/proposal/models.py:83
 msgid "Fields Value"
 msgstr "Valores do campo"
+
+#, fuzzy
+#~| msgid "Approved"
+#~ msgid "Not Approved"
+#~ msgstr "Aprovado"
